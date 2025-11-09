@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jajanwala Elementary School - Education Enhancement Project</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            margin-left: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--light);
+        }
+        
+        .hero {
+            background: url('z\ \(9\).jpeg') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .progress-section {
+            background: var(--light);
+        }
+        
+        .progress-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .progress-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .progress-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .progress-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .progress-card h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 1.5rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--success);
+            border-radius: 5px;
+            transition: width 1s ease-in-out;
+        }
+        
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+        }
+        
+        .milestones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .milestone {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .milestone i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+        
+        .milestone h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item .overlay h3 {
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-section p {
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .awf{
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        .awf img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-school fa-2x"></i>
+                    <h1>Study to Learn Project</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About Project</a></li>
+                        <li><a href="#progress">Progress</a></li>
+                        <li><a href="#milestones">Milestones</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="index.html">AWF</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="awf">
+        <img src="w4.jpeg" alt="logo" >
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Transforming Education at Jajanwala Elementary School</h2>
+                <p>Establishing computer and science labs to boost quality of education for 6th to 8th grade students</p>
+                <a href="#progress" class="btn">View Progress</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About The Project </h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Enhancing STEM Education in Rural Pakistan</h3>
+                    <p>This initiative aims to establish state-of-the-art computer and science laboratories at Jajanwala Elementary School to provide quality education to students from 6th to 8th grade.</p>
+                    <p>Our comprehensive approach includes:</p>
+                    <ul>
+                        <li>Establishing fully equipped computer and science labs</li>
+                        <li>Providing trained teachers to execute our specialized teaching plan</li>
+                        <li>Implementing a curriculum focused on practical, hands-on learning</li>
+                        <li>Regular monitoring and assessment to ensure program effectiveness</li>
+                    </ul>
+                    <p>With the necessary NOC from the government, we are committed to transforming the educational landscape in this community and empowering students with 21st-century skills.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Science Lab">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="progress" class="progress-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Progress</h2>
+            </div>
+            <div class="progress-container">
+                <div class="progress-card">
+                    <h3><i class="fas fa-file-contract"></i> NOC from Government</h3>
+                    <p>Official approval from relevant government authorities to proceed with the project.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span>Status:</span>
+                        <span>under progress</span>
+                    </div>
+                </div>
+                <div class="progress-card">
+                    <h3><i class="fas fa-laptop"></i> Computer Lab Setup</h3>
+                    <p>Procurement and installation of computers, furniture, and necessary equipment.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 50%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span>Status:</span>
+                        <span>50% Complete</span>
+                    </div>
+                </div>
+                <div class="progress-card">
+                    <h3><i class="fas fa-flask"></i> Science Lab Setup</h3>
+                    <p>Establishment of a fully functional science laboratory with necessary equipment.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 10%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span>Status:</span>
+                        <span>10% Complete</span>
+                    </div>
+                </div>
+                <div class="progress-card">
+                    <h3><i class="fas fa-chalkboard-teacher"></i> Teacher Recruitment</h3>
+                    <p>Hiring and training specialized teachers for computer and science education.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span>Status:</span>
+                        <span>75% Complete</span>
+                    </div>
+                </div>
+                <div class="progress-card">
+                    <h3><i class="fas fa-book"></i> Curriculum Development</h3>
+                    <p>Creating specialized teaching plans and learning materials for students.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span>Status:</span>
+                        <span>40% Complete</span>
+                    </div>
+                </div>
+                <div class="progress-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Student Enrollment</h3>
+                    <p>Registering students from 6th to 8th grade for the enhanced education program.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 90%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span>Status:</span>
+                        <span>90% Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="milestones" class="milestones-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Milestones</h2>
+            </div>
+            <div class="milestones">
+                <div class="milestone">
+                    <i class="fas fa-spinner"></i>
+                    <h3>NOC Approval</h3>
+                    <p>Very soon will obtained No Objection Certificate from government authorities</p>
+                    <p class="date">Completed: ? </p>
+                </div>
+                <div class="milestone">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Infrastructure Assessment</h3>
+                    <p>Completed assessment of school facilities and space allocation for labs</p>
+                    <p class="date">Completed: October 2025</p>
+                </div>
+                <div class="milestone">
+                    <i class="fas fa-spinner"></i>
+                    <h3>Equipment Procurement</h3>
+                    <p>Ongoing process of purchasing computers, lab equipment, and furniture</p>
+                    <p class="date">Expected: December 2025</p>
+                </div>
+                <div class="milestone">
+                    <i class="fas fa-clock"></i>
+                    <h3>Lab Setup Completion</h3>
+                    <p>Full establishment and testing of computer laboratory</p>
+                    <p class="date">Expected: December 2025</p>
+                </div>
+                <div class="milestone">
+                    <i class="fas fa-clock"></i>
+                    <h3>Teacher Training</h3>
+                    <p>Comprehensive training program for selected teachers</p>
+                    <p class="date">Expected: November 2025</p>
+                </div>
+                <div class="milestone">
+                    <i class="fas fa-clock"></i>
+                    <h3>Program Launch</h3>
+                    <p>Official commencement of enhanced education program for students</p>
+                    <p class="date">Expected: post NOC </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Project Gallery</h2>
+            </div>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="w1 (1).jpg" alt="Classroom Preparation">
+                    <div class="overlay">
+                        <h3>Classroom Preparation</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="w1 (2).jpg" alt="Classroom Needs">
+                    <div class="overlay">
+                        <h3>Classroom Needs</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="z (9).jpeg" alt="Classroom Preparation">
+                    <div class="overlay">
+                        <h3>Classroom Preparation</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="z3.jpg" alt="Teacher Training">
+                    <div class="overlay">
+                        <h3>Teacher Training Session</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="z (2).jpeg" alt="Our Engagement">
+                    <div class="overlay">
+                        <h3> Engagement Activities</h3>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="z4.jpeg" alt="Community Meeting">
+                    <div class="overlay">
+                        <h3>Community Awareness Meeting</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-form">
+                <form id="contactForm" action="https://formspree.io/f/mkgkwyyd" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About The Project</h3>
+                    <p>An initiative to establish computer and science labs at Jajanwala Elementary School to enhance education quality for 6th to 8th grade students.</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Jajanwala Elementary School, Pakistan</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Project</a></li>
+                        <li><a href="#progress">Progress Tracking</a></li>
+                        <li><a href="#milestones">Milestones</a></li>
+                        <li><a href="#gallery">Project Gallery</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-phone"></i> +92 305 1636357</p>
+                    <p><i class="fas fa-envelope"></i> awf.nrl@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> Mon - Fri: 9:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Jajanwala Elementary School Project by AWF NAROWAL. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Progress animation on scroll
+        window.addEventListener('scroll', function() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const progressSection = document.getElementById('progress');
+            
+            const sectionTop = progressSection.offsetTop;
+            const sectionHeight = progressSection.offsetHeight;
+            const windowHeight = window.innerHeight;
+            
+            if (window.scrollY > sectionTop - windowHeight + 100) {
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 300);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
