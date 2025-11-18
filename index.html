@@ -88,13 +88,19 @@ For this purpose we are taking several steps .
   </div>
   <h2>Contect us</h2>
     <div class="contact-form">
-                    <form   action="https://formspree.io/f/mkgkwyyd"
-  method="POST">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <input type="tel" placeholder="Your Phone Number">
-                        <textarea placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
+                    <form     action="https://formspree.io/f/mkgkwyyd"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your file:
+    <input type="file" name="upload">
+  </label>
+  <button type="submit">Send</button>
                     </form>
                 </div>
 
@@ -140,5 +146,6 @@ For this purpose we are taking several steps .
   <script src="se.js"></script>
 </body>
 </html>
+
 
 
