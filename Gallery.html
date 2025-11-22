@@ -3,70 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>AWF NGO Gallery</title>
     <style>
-        *{
-            padding : 3px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .di{
-            height: 10rem;
-            width: 30%;
-            border: 1px solid red;
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
         }
-        .frow{
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
+
+        header {
+            background: linear-gradient(135deg, #1a6d38, #2ecc71);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        img{
-            height: 100%;
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img {
             width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1a6d38;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+        #home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #1a6d38;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        #home:hover {
+            background-color: #145a2c;
+            color: #8b8bf7;
+        }   
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+              #home {
+                position: fixed;
+                top: 1px;
+                left: 1px;
+                padding: 4px 6px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+          
         }
     </style>
-    <link rel="stylesheet" href="/index.html">
 </head>
 <body>
-    <h2>Gallery</h2>
- 
-    <div class="frow">
-        <div class="di"><img src="Untitled-2.jpg" alt="pic"> </div>
-        <div class="di"><img src="Untitled-3.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-4.jpg" alt="pic"></div>
-    </div>
-    <div class="frow">
-        <div class="di"><img src="Untitled-5.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-6.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-7.jpg" alt="pic"></div>
-    </div>
-    <div class="frow">
-        <div class="di"><img src="Untitled-8.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-9.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-10.jpg" alt="pic"></div>
+    <header>
+        <h1>AWF NGO Gallery</h1>
+        <p>Showcasing our efforts to improve the quality of education in rural area of Pakistan.</p>
+    </header>
+    <a id="home" href="index.html">HOME</a>
+
+    <div class="container">
+        <div class="gallery">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="n1.jpg" alt="AWF Project" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">NOC Initiative</h3>
+                    <p class="card-description">Our devoted team is working hard to clear all the legal requirements.</p>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="n2.jpg" alt="Community involvment" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Community Awareness Program</h3>
+                    <p class="card-description">Educating local communities about sustainable practices and the importance of biodiversity conservation.</p>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="n7.jpg" alt="BOHRI Project" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">BOHRI Project</h3>
+                    <p class="card-description">free IT facilitation center has been established in village BOHRI , NAROWAL to students who can not go to city.</p>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card">
+                <img src="n5.jpg" alt="IT lab Initiative" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Computer lab in NGS</h3>
+                    <p class="card-description">A computer labe has been established by AWF in NGS school.We hope it may help in boosting the quality of education in our schooling system.</p>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="card">
+                <img src="n4.jpg" alt="Lab for women" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Computer Center for women</h3>
+                    <p class="card-description">A free Computer Center has been established in Jajanwala for women so that the girls who can not go out of their village could get IT knowldge on their doorstep.</p>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="card">
+                <img src="n6.jpg" alt="IC Complex IT lab" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">IC Complex IT Lab</h3>
+                    <p class="card-description">We are working closly to establish a Computer & Scince Lab in the school . The institute is working great for spacial children also.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="frow">
-        <div class="di"><img src="Untitled-11.jpg" alt="pic"> </div>
-        <div class="di"><img src="Untitled-12.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-24.jpg" alt="pic"></div>
-    </div>
-    <div class="frow">
-        <div class="di"><img src="Untitled-14.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-15.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-16.jpg" alt="pic"></div>
-    </div>
-    <div class="frow">
-        <div class="di"><img src="Untitled-17.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-18.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-23.jpg" alt="pic"></div>
-    </div>
-     <div class="frow">
-        <div class="di"><img src="Untitled-20.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-21.jpg" alt="pic"></div>
-        <div class="di"><img src="Untitled-22.jpg" alt="pic"></div>
-    </div>
-
-
-    
+    <footer>
+        <p>&copy; 2023 AWF NGO. All rights reserved. | Working to improve the quality of education in Narowal.</p>
+    </footer>
 </body>
 </html>
